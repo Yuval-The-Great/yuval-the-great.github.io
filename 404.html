@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    const routeIndex = window.location.pathname.lastIndexOf("/photo/");
+    const basePath = routeIndex === -1
+      ? "/"
+      : window.location.pathname.slice(0, routeIndex + 1);
+    const base = document.createElement("base");
+    base.href = basePath;
+    document.head.appendChild(base);
+
+    const icon = document.createElement("link");
+    icon.rel = "icon";
+    icon.href = "logo.svg";
+    document.head.appendChild(icon);
+
+    const styles = document.createElement("link");
+    styles.rel = "stylesheet";
+    styles.href = "engine/base.css";
+    document.head.appendChild(styles);
+  </script>
+  <title>My Photo Site</title>
+</head>
+<body>
+  <header id="site-header">
+    <h1 id="site-title"></h1>
+    <p id="site-subtitle"></p>
+  </header>
+
+  <main id="gallery"></main>
+
+  <footer id="site-footer"></footer>
+
+  <div id="lightbox" hidden>
+    <button id="lightbox-close" aria-label="Close">&times;</button>
+    <figure>
+      <img id="lightbox-image" alt="">
+      <figcaption>
+        <strong id="lightbox-title"></strong>
+        <em id="lightbox-caption"></em>
+        <p id="lightbox-description"></p>
+        <small id="lightbox-exif"></small>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script>
+    const exifScript = document.createElement("script");
+    exifScript.src = "engine/exif.js";
+    exifScript.async = false;
+    document.body.appendChild(exifScript);
+
+    const appScript = document.createElement("script");
+    appScript.src = "engine/app.js";
+    appScript.async = false;
+    document.body.appendChild(appScript);
+  </script>
+</body>
+</html>

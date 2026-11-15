@@ -45,6 +45,12 @@ data/
 5. Edit `data/site.json` for your title, subtitle and footer.
 6. Visit `https://YOUR-USERNAME.github.io/PhotoSiteStarter/`.
 
+Clicking a photo opens a shareable URL such as
+`https://YOUR-USERNAME.github.io/PhotoSiteStarter/photo/sunset.jpg`.
+The browser's Back and Forward buttons move between the gallery and photos
+without reloading the page. GitHub Pages uses `404.html` to load direct photo
+links into the app.
+
 To preview on your computer, run `python3 -m http.server` in the repo folder and open http://localhost:8000 (opening the file directly won't work because browsers block `fetch` on `file://`).
 
 ## Themes
