@@ -51,7 +51,10 @@ function makePhotoCard(photo) {
   figure.className = "photo-card";
 
   const img = document.createElement("img");
-  img.src = siteBasePath + "data/images/" + photo.file;
+  const extensionIndex = photo.file.lastIndexOf(".");
+  const thumbnailFile = photo.file.slice(0, extensionIndex) +
+    "_thumbnail" + photo.file.slice(extensionIndex);
+  img.src = siteBasePath + "data/images/thumbs/" + thumbnailFile;
   img.alt = photo.title || photo.file;
   img.loading = "lazy"; // only download when scrolled near
 

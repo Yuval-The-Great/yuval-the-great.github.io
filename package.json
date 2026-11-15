@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "node scripts/generate-thumbnails.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  },
+  "allowScripts": {
+    "sharp@0.35.5": true
+  }
+}
